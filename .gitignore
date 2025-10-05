@@ -1,0 +1,23 @@
+node_modules
+
+# Build files
+/build
+/dist
+*.min.js
+*.map
+
+# Production
+/build/static/js/*.js
+/build/static/css/*.css
+
+<<<<<<< HEAD
+/history.env
+/.history
+/history
+.env
+.env.local
+=======
+/.history
+/history
+>>>>>>> ed61915d (test)
+.env
