@@ -16,7 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-  "test:cross-browser": "echo \"Deprecated: project moved from LambdaTest to CodeceptJS. Use npm run test:e2e\" && exit 0",
+  "test:cross-browser": "npm run test:e2e",
   "setup:e2e": "npx playwright install --with-deps",
   "test:e2e": "npx codeceptjs run --steps",
   "test:ai": "node scripts/codecept-ai.js",
