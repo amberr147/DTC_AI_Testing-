@@ -48,26 +48,64 @@ CURRENT TEST FILE:
 ${currentTests}
 \`\`\`
 
+APP BEHAVIOR & RULES:
+- App title: "Date & Time Validator" (must wait for this text)
+- Empty date field shows: "Please enter a date!"
+- Empty time field is ALLOWED - app still validates successfully and shows "Valid Date"
+- Past dates (like 15/08/2020) are VALID dates - they show "Valid Date"
+- Future dates (like 31/12/2025) are VALID dates - they show "Valid Date"
+- Date format: dd/mm/yyyy (day/month/year)
+- Time field is optional - empty time does not cause validation error
+
+VALIDATION RULES & EXACT ERROR MESSAGES:
+- Day validation (1-31): 
+  * Day 0 or Day > 31: "Input data for Day is out of range!"
+  * Examples: 00/01/2024, 32/01/2024 → "Input data for Day is out of range!"
+
+- Month validation (1-12):
+  * Month 0 or Month > 12: "Input data for Month is out of range!"
+  * Examples: 15/13/2024, 01/00/2024 → "Input data for Month is out of range!"
+
+- Year validation (1000-3000):
+  * Year < 1000 or Year > 3000: "Input data for Year is out of range!"
+  * Examples: 15/08/99, 31/12/99, 01/01/3001, 31/12/9999 → "Input data for Year is out of range!"
+
+- Calendar validation (for dates within valid ranges):
+  * Non-existent dates: "dd/mm/yyyy is NOT correct date time!"
+  * Examples: 30/02/2024 → "30/02/2024 is NOT correct date time!", 31/04/2024 → "31/04/2024 is NOT correct date time!"
+
+- Success messages:
+  * Valid dates: "dd/mm/yyyy is correct date time!"
+  * Examples: 15/08/2020 → "15/08/2020 is correct date time!", 31/12/3000 → "31/12/3000 is correct date time!"
+
+IMPORTANT: Range validation happens BEFORE calendar validation!
+
+COMPREHENSIVE TEST EXAMPLES FROM CURRENT SUITE:
+✅ PASSING TESTS:
+- "15/08/2020" → "15/08/2020 is correct date time!" 
+- "31/12/3000" → "31/12/3000 is correct date time!" (valid max year)
+- "00/01/2024" → "Input data for Day is out of range!"
+- "15/13/2024" → "Input data for Month is out of range!" 
+- "32/01/2024" → "Input data for Day is out of range!"
+- "30/02/2024" → "30/02/2024 is NOT correct date time!" (calendar validation)
+- "15/08/99" → "Input data for Year is out of range!" (year < 1000)
+- "31/12/9999" → "Input data for Year is out of range!" (year > 3000)
+
+SELECTORS:
+- Date input: "#date" 
+- Time input: "#time"
+- Timezone select: "#timezone" 
+- Validate button: ".validate-btn" (shows "Check")
+- Set to Now button: ".now-btn" (shows "Now")
+- Clear button: ".clear-btn" (shows "Clear")
+- Result area: ".result"
+
 USER REQUEST: ${userRequest}
 
-Generate CodeceptJS test scenarios based on the user request. Follow these rules:
+Generate CodeceptJS test scenarios with CORRECT expectations based on actual app behavior above. 
+Always start with I.waitForText("Date & Time Validator", 5) after I.amOnPage("/").
 
-1. Use CodeceptJS syntax with Feature() and Scenario()
-2. Use proper I.amOnPage(), I.fillField(), I.click(), I.see(), I.waitForElement() commands
-3. Target the Date Time Checker app selectors:
-   - Date input: "#date" 
-   - Time input: "#time"
-   - Timezone select: "#timezone"
-   - Validate button: ".validate-btn"
-   - Set to Now button: ".now-btn"  
-   - Clear button: ".clear-btn"
-   - Result area: ".result"
-4. Test realistic scenarios for a date/time validation app
-5. Include both positive and negative test cases
-6. Add proper waits and assertions
-7. Use Vietnamese comments if helpful
-
-Generate ONLY the test code, ready to copy-paste into dateTimeChecker_test.js:`;
+Generate ONLY the test code, ready to copy-paste:`;
 
     const res = await client.chat.completions.create({
       model: "gpt-4o-mini",

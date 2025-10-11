@@ -1,21 +1,21 @@
 .datetime-checker {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 820px;
+  margin: 24px auto;
+  padding: 28px;
+  background: linear-gradient(180deg, var(--panel), rgba(45,50,80,0.95));
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(2,6,23,0.7);
+  border: 1px solid rgba(255,255,255,0.02);
+  font-family: 'Raleway', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .datetime-checker h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #4a5568;
-  font-size: 2rem;
-  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
 }
 
 .form-group {
@@ -26,8 +26,8 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #4a5568;
-  font-size: 1.1rem;
+  color: #cfcfe0;
+  font-size: 0.95rem;
 }
 
 /* Date input with calendar button */
@@ -39,34 +39,37 @@
 
 .date-text-input {
   flex: 1;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.04);
   border-radius: 8px 0 0 8px;
   border-right: none;
-  font-size: 16px;
-  transition: all 0.3s ease;
+  font-size: 15px;
+  background: transparent;
+  color: var(--white);
+  transition: box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .date-text-input:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 6px 22px rgba(249,177,122,0.08);
 }
 
 .calendar-toggle {
-  padding: 12px 16px;
-  border: 2px solid #e0e0e0;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.04);
   border-left: none;
   border-radius: 0 8px 8px 0;
-  background: #f8f9fa;
+  background: transparent;
+  color: var(--white);
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  transition: background 150ms ease, border-color 150ms ease;
 }
 
 .calendar-toggle:hover {
-  background: #e9ecef;
-  border-color: #007bff;
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(255,255,255,0.06);
 }
 
 .calendar-popup {
@@ -75,118 +78,157 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  margin-top: 5px;
+  margin-top: 6px;
   padding: 10px;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, rgba(45,50,80,0.96), rgba(35,38,60,0.96));
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  box-shadow: 0 22px 46px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+  transform-origin: top center;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 
 .calendar-input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 16px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  font-size: 15px;
+  background: rgba(255,255,255,0.02);
+  color: var(--white);
+  padding: 12px 10px;
+  letter-spacing: 0.2px;
+}
+
+.calendar-popup::before {
+  /* small top notch to visually connect the date field */
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 18px;
+  width: 18px;
+  height: 8px;
+  background: linear-gradient(180deg, rgba(45,50,80,0.96), rgba(35,38,60,0.96));
+  transform: translateY(-100%) rotate(0deg);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.calendar-header {
+  font-size: 0.86rem;
+  color: var(--muted-2);
+  padding: 6px 8px 10px 8px;
+  border-bottom: 1px dashed rgba(255,255,255,0.02);
+  margin-bottom: 8px;
+}
+
+.calendar-popup.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.calendar-popup.hide {
+  transform: translateY(-6px) scale(0.98);
+  opacity: 0;
 }
 
 /* Form controls */
 input[type="time"],
 select {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e2e8f0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.03);
   border-radius: 10px;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  background: white;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  background: transparent;
+  color: var(--white);
 }
 
 input[type="time"]:focus,
 select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px rgba(249,177,122,0.06);
 }
 
 .button-group {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .validate-btn,
 .now-btn,
 .clear-btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
-  font-size: 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 120px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  min-width: 110px;
 }
 
 .validate-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--accent);
+  color: #2b1a0f;
 }
 
 .validate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(249,177,122,0.12);
 }
 
 .now-btn {
-  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
-  color: white;
+  background: rgba(255,255,255,0.02);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
 .now-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(2,6,23,0.6);
 }
 
 .clear-btn {
-  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
-  color: white;
+  background: transparent;
+  color: var(--accent-2);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
 .clear-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(229, 62, 62, 0.4);
+  transform: translateY(-3px);
+  background: rgba(96,81,155,0.04);
 }
 
 .result {
-  margin-top: 30px;
-  padding: 25px;
-  border-radius: 15px;
-  animation: fadeIn 0.5s ease-in-out;
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 10px;
+  animation: fadeIn 380ms cubic-bezier(.2,.9,.3,1);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .success-message {
-  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-  color: white;
+  background: transparent;
+  color: var(--white);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
 }
 
 .error-message {
-  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
-  color: white;
+  background: transparent;
+  color: #ffd7d7;
+  border-left: 4px solid var(--danger, #ff5f5f);
+  padding-left: 12px;
 }
 
 .result pre {
@@ -198,41 +240,45 @@ select:focus {
 }
 
 .time-display {
-  margin-top: 30px;
-  padding: 25px;
-  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-  border-radius: 15px;
-  color: white;
-  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  background: transparent;
+  border-radius: 10px;
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .time-display h3 {
-  margin-bottom: 15px;
-  font-size: 1.3rem;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted-2);
 }
 
 .current-time {
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 15px;
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  font-weight: 700;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
   margin: 0;
+  color: var(--white);
 }
 
 .validation-info {
-  margin-top: 30px;
-  padding: 25px;
-  background: #f8f9fa;
-  border-radius: 15px;
-  border: 2px solid #e9ecef;
+  margin-top: 18px;
+  padding: 12px;
+  background: transparent;
 }
 
 .validation-info h3 {
-  color: #495057;
-  margin-bottom: 15px;
+  color: #cbdff0;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
 }
 
 .validation-info ul {
@@ -243,8 +289,8 @@ select:focus {
 
 .validation-info li {
   padding: 8px 0;
-  border-bottom: 1px solid #e9ecef;
-  color: #6c757d;
+  border-bottom: 1px dashed rgba(255,255,255,0.04);
+  color: #a9bcc8;
   font-size: 0.95rem;
 }
 
@@ -255,37 +301,13 @@ select:focus {
 @media (max-width: 768px) {
   .datetime-checker {
     margin: 10px;
-    padding: 20px;
+    padding: 16px;
   }
-  
-  .datetime-checker h2 {
-    font-size: 1.5rem;
-  }
-  
-  .date-input-container {
-    flex-direction: column;
-  }
-  
-  .date-text-input {
-    border-radius: 8px;
-    border-right: 2px solid #e0e0e0;
-    margin-bottom: 10px;
-  }
-  
-  .calendar-toggle {
-    border-radius: 8px;
-    border-left: 2px solid #e0e0e0;
-  }
-  
-  .button-group {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .validate-btn,
-  .now-btn,
-  .clear-btn {
-    width: 100%;
-    max-width: 200px;
-  }
+  .datetime-checker h2 { font-size: 1.2rem; }
+  .date-input-container { flex-direction: column; gap: 8px; }
+  .date-text-input { border-radius: 8px; border-right: 1px solid #222428; }
+  .calendar-toggle { border-radius: 8px; border-left: 1px solid #222428; }
+  .button-group { flex-direction: column; align-items: stretch; }
+  .validate-btn, .now-btn, .clear-btn { width: 100%; min-width: auto; }
+  .time-display { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
