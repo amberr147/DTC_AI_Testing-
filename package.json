@@ -1,6 +1,7 @@
 {
   "name": "date-time-checker",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "homepage": ".",
   "dependencies": {
@@ -14,13 +15,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:api": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-  "test:cross-browser": "npm run test:e2e",
-  "setup:e2e": "npx playwright install --with-deps",
-  "test:e2e": "npx codeceptjs run --steps",
-  "test:ai": "node scripts/codecept-ai.js",
-  "generate:tests": "node scripts/ai-test-generator.js",
+    "test:cross-browser": "npm run test:e2e",
+    "setup:e2e": "npx playwright install --with-deps",
+    "test:e2e": "npx codeceptjs run --config codecept.conf.cjs --steps",
+    "test:ai": "node scripts/codecept-ai.js",
+    "generate:tests": "node scripts/ai-test-generator.js",
+    "test:api": "node scripts/codecept-api.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,9 +47,10 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.0",
     "@testing-library/react": "^16.3.0",
+    "codeceptjs": "^3.7.5",
+    "codeceptjs-chai": "^2.3.5",
     "jest-environment-jsdom": "^30.2.0",
-    "codeceptjs": "^3.2.6",
-    "playwright": "^1.43.0"
+    "playwright": "^1.56.0"
   },
   "engines": {
     "node": ">=16.0.0",

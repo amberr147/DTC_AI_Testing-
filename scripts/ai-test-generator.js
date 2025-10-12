@@ -1,11 +1,15 @@
 // AI Test Generator for CodeceptJS
 // Usage: npm run generate:tests "write for me 2 test cases for invalid dates"
-require("dotenv").config();
-const OpenAI = require("openai");
-const fs = require("fs");
-const path = require("path");
+import "dotenv/config";
+import OpenAI from "openai";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const openaiKey = process.env.OPENAI_API_KEY;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function generateTests() {
   if (!openaiKey) {

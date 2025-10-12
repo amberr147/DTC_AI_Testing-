@@ -1,56 +1,72 @@
-Feature("Date Time Checker E2E");
+// Feature("Date Time Checker E2E");
 
-Scenario("Validate empty date field", async ({ I }) => {
-  I.amOnPage("/");
-  I.waitForText("Date & Time Validator", 5);
-  I.fillField("#date", ""); // Empty date field
-  I.fillField("#time", "12:00");
-  I.selectOption("#timezone", "Asia/Ho_Chi_Minh");
+// Scenario("Empty date field should return error message", async ({ I }) => {
+//   I.amOnPage("/");
+//   I.waitForText("Date & Time Validator", 5);
+//   I.fillField("#date", "");
+//   I.click(".validate-btn");
+//   I.see("Please enter a date!", ".result");
+//   I.wait(4);
+// });
 
-  I.click(".validate-btn");
-  I.waitForElement(".result", 5);
-  I.see("Please enter a date!", ".result"); // Check result for empty date field
-  I.wait(3); // Wait 3 seconds to see result
+// Scenario("Leap year date should return success message", async ({ I }) => {
+//   I.amOnPage("/");
+//   I.waitForText("Date & Time Validator", 5);
+//   I.fillField("#date", "29/02/2024"); // Leap year
+//   I.click(".validate-btn");
+//   I.see("29/02/2024 is correct date time!", ".result");
+//   I.wait(4);
+// });
+
+// Scenario("Non-leap year date should return error message", async ({ I }) => {
+//   I.amOnPage("/");
+//   I.waitForText("Date & Time Validator", 5);
+//   I.fillField("#date", "29/02/2023"); // Non-leap year
+//   I.click(".validate-btn");
+//   I.see("29/02/2023 is NOT correct date time!", ".result");
+//   I.wait(4);
+// });
+
+Feature("Date API Validation @api");
+
+Scenario("Valid date should return success message", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", { date: "15/08/2020" });
+  console.log("Response:", res.data); // Log response data
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "15/08/2020 is correct date time!");
 });
 
-Scenario("Validate valid future date (31/12/2025)", async ({ I }) => {
-  I.amOnPage("/");
-  I.waitForText("Date & Time Validator", 5);
-  I.fillField("#date", "31/12/2025"); // Valid future date
-  I.fillField("#time", "15:30");
-  I.selectOption("#timezone", "Asia/Ho_Chi_Minh");
-
-  I.click(".validate-btn");
-  I.waitForElement(".result", 5);
-  I.see("31/12/2025 is correct date time!", ".result"); // Check result for valid future date
-  I.wait(3); // Wait 3 seconds to see result
+Scenario("Invalid day should return error message", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", { date: "30/02/2020" });
+  console.log("Response:", res.data);
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "30/02/2020 is NOT correct date time!");
 });
 
-Scenario("Validate invalid date (31/04/2024)", async ({ I }) => {
-  I.amOnPage("/");
-  I.waitForText("Date & Time Validator", 5);
-  I.fillField("#date", "31/04/2024"); // Invalid date (April has 30 days)
-  I.fillField("#time", "12:00");
-  I.selectOption("#timezone", "Asia/Ho_Chi_Minh");
-
-  I.click(".validate-btn");
-  I.waitForElement(".result", 5);
-  I.see("31/04/2024 is NOT correct date time!", ".result"); // Check result for invalid date
-  I.wait(3); // Wait 3 seconds to see result
+Scenario("Non-numeric month should return format error", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", { date: "15/ab/2020" });
+  console.log("Response:", res.data);
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "Input data for Month is incorrect format!");
 });
 
-Scenario(
-  "Validate valid past date with empty time (01/01/2020)",
-  async ({ I }) => {
-    I.amOnPage("/");
-    I.waitForText("Date & Time Validator", 5);
-    I.fillField("#date", "01/01/2020"); // Valid past date
-    I.fillField("#time", ""); // Empty time field
-    I.selectOption("#timezone", "Asia/Ho_Chi_Minh");
+Scenario("Year out of range should return range error", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", { date: "15/08/999" });
+  console.log("Response:", res.data);
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "Input data for Year is out of range!");
+});
 
-    I.click(".validate-btn");
-    I.waitForElement(".result", 5);
-    I.see("01/01/2020 is correct date time!", ".result"); // Check result for valid past date
-    I.wait(3); // Wait 3 seconds to see result
-  }
-);
+Scenario("Empty date should return format error", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", { date: "" });
+  console.log("Response:", res.data);
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "Please enter date in dd/mm/yyyy format!");
+});
+
+Scenario("Missing date field should return format error", async ({ I }) => {
+  const res = await I.sendPostRequest("/api/validate", {});
+  console.log("Response:", res.data);
+  I.assertEqual(res.status, 200);
+  I.assertEqual(res.data.message, "Please enter date in dd/mm/yyyy format!");
+});
