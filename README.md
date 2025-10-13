@@ -1,3 +1,5 @@
+TEST NÈ TEST NÈ
+
 # 📱 DateTimeChecker - Complete Testing Suite# 📱 DateTimeChecker Android Testing Framework# 📱 DateTimeChecker Android Testing Framework
 
 **Advanced testing framework** với 4 loại testing: **E2E, API, Mobile App** và **AI-powered test generation** cho Date Time Checker application.**Automated testing for real Android DateTimeChecker app** built with Android Studio using direct WebDriverIO + Appium approach.**Automated testing for real Android DateTimeChecker app** built with Android Studio using direct WebDriverIO + Appium approach.
@@ -943,5 +945,7 @@ npm run test:mobile-app       # ✓ Mobile app setup check
 **🚀 4 Testing Types**: E2E + API + Mobile Web + Mobile App + AI Generation
 **📅 October 2025** - FPT University Software Testing Course
 ````````
-#   T e s t i n g   C I / C D   -   1 0 / 1 3 / 2 0 2 5   0 7 : 3 9 : 2 1  
+
+#   T e s t i n g   C I / C D   -   1 0 / 1 3 / 2 0 2 5   0 7 : 3 9 : 2 1 
+ 
  
