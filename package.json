@@ -20,10 +20,12 @@
     "test": "react-scripts test",
     "test:cross-browser": "npm run test:e2e",
     "setup:e2e": "npx playwright install --with-deps",
-    "test:e2e": "npx codeceptjs run --config codecept.conf.cjs --steps",
+    "test:e2e": "npx codeceptjs run tests/e2e_testing.js --config codecept.conf.cjs --steps",
+    "test:api": "npx codeceptjs run tests/api_testing.js --config codecept.conf.cjs --grep \"@api\" --steps",
     "test:ai": "node scripts/codecept-ai.js",
     "generate:tests": "node scripts/ai-test-generator.js",
-    "test:api": "node scripts/codecept-api.js",
+    "debug:android-ui": "node scripts/debug-android-ui.cjs",
+    "test:android": "node scripts/final-android-test.cjs",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,10 +49,14 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.0",
     "@testing-library/react": "^16.3.0",
+    "@wdio/appium-service": "^9.20.0",
+    "appium": "^3.1.0",
+    "appium-uiautomator2-driver": "^5.0.5",
     "codeceptjs": "^3.7.5",
     "codeceptjs-chai": "^2.3.5",
     "jest-environment-jsdom": "^30.2.0",
-    "playwright": "^1.56.0"
+    "playwright": "^1.56.0",
+    "webdriverio": "^9.20.0"
   },
   "engines": {
     "node": ">=16.0.0",

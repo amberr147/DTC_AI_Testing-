@@ -1,12 +1,12 @@
-// CodeceptJS configuration for both E2E (Playwright) and API testing
 // ---------------------------------------------------------------
-// This config lets you run:
-// 1️⃣ E2E tests: simulate user behavior on the DateTimeChecker web app
-// 2️⃣ API tests: send HTTP requests directly to the backend endpoints
+// CodeceptJS configuration for both E2E (Playwright), API, and Mobile testing
 // ---------------------------------------------------------------
+// 1️⃣ E2E tests  : simulate user behavior on the DateTimeChecker web app
+// 2️⃣ API tests  : send HTTP requests directly to backend endpoints
+// ---------------------------------------------------------------
+
 require("dotenv").config();
 const { setHeadlessWhen } = require("@codeceptjs/configure");
-const { debug } = require("openai/core.mjs");
 
 // Enable headless mode when HEADLESS=true
 setHeadlessWhen(process.env.HEADLESS === "true");
@@ -15,7 +15,7 @@ exports.config = {
   // ---------------------------------------------------------------
   // TEST FILES
   // ---------------------------------------------------------------
-  tests: "./tests/**/*_test.js", // Includes both E2E and API test files
+  tests: "./tests/**/*_test.js", // Includes both E2E, API, and Mobile test files
   output: "./output",
 
   // ---------------------------------------------------------------
@@ -34,7 +34,6 @@ exports.config = {
     },
 
     // --- (2) REST HELPER: for API testing ---
-    // This lets us send HTTP requests directly to the backend
     REST: {
       endpoint: process.env.API_URL || "http://localhost:8080",
       defaultHeaders: {
@@ -43,7 +42,7 @@ exports.config = {
       debug: true,
     },
 
-    // --- (3) ASSERTION HELPER (optional but nice for readable asserts) ---
+    // --- (3) ASSERTION HELPER ---
     ChaiWrapper: {
       require: "codeceptjs-chai",
     },
@@ -64,8 +63,10 @@ exports.config = {
   name: "date-time-checker-codeceptjs",
 
   // ---------------------------------------------------------------
-  // CUSTOM TEST SUITES (optional)
-  // You can run specific types of tests like:
-  // npx codeceptjs run --grep "@api"
+  // CUSTOM TEST SUITES
+  // ---------------------------------------------------------------
+  // 💡 Example commands:
+  //    ▶ npx codeceptjs run --grep "@api" --steps       → Run API testsư
+  //    ▶ npx codeceptjs run --grep "@e2e" --steps       → Run normal E2E tests
   // ---------------------------------------------------------------
 };

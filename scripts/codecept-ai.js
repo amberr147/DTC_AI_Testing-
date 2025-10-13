@@ -1,14 +1,16 @@
 // Simple script to run CodeceptJS and optionally call OpenAI for test suggestions
 // Reads OPENAI_API_KEY from .env
-require("dotenv").config();
-const { exec } = require("child_process");
-const OpenAI = require("openai");
+import "dotenv/config";
+import { exec } from "child_process";
+import OpenAI from "openai";
 
 const openaiKey = process.env.OPENAI_API_KEY;
 
 async function runE2E() {
   console.log("Running CodeceptJS E2E tests (Playwright)...");
-  const child = exec("npx codeceptjs run --steps", { cwd: process.cwd() });
+  const child = exec("npx codeceptjs run --config codecept.conf.cjs --steps", {
+    cwd: process.cwd(),
+  });
 
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);

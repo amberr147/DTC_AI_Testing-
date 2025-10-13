@@ -36,10 +36,7 @@ async function generateTests() {
 
   try {
     // Read current test file for context
-    const currentTestPath = path.join(
-      __dirname,
-      "../tests/dateTimeChecker_test.js"
-    );
+    const currentTestPath = path.join(__dirname, "../tests/e2e_testing.js");
     let currentTests = "";
     if (fs.existsSync(currentTestPath)) {
       currentTests = fs.readFileSync(currentTestPath, "utf8");
@@ -128,8 +125,12 @@ Generate ONLY the test code, ready to copy-paste:`;
     console.log("");
     console.log("📋 To add these tests:");
     console.log("1. Copy the code above");
-    console.log("2. Paste into tests/dateTimeChecker_test.js");
-    console.log("3. Run: npm run test:e2e");
+    console.log(
+      "2. Paste into tests/e2e_testing.js (E2E) or tests/api_testing.js (API)"
+    );
+    console.log(
+      "3. Run: npm run test:e2e-only (E2E) or npm run test:api-only (API)"
+    );
     console.log("");
     console.log('🔄 To regenerate: npm run generate:tests "your new request"');
   } catch (err) {

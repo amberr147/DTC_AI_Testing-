@@ -1,6 +1,3 @@
-import "dotenv/config";
-import { exec } from "child_process";
-
 const runTests = () => {
   exec(
     'npx codeceptjs run --config codecept.conf.cjs --grep "@api" --steps',

@@ -1,32 +1,3 @@
-// Feature("Date Time Checker E2E");
-
-// Scenario("Empty date field should return error message", async ({ I }) => {
-//   I.amOnPage("/");
-//   I.waitForText("Date & Time Validator", 5);
-//   I.fillField("#date", "");
-//   I.click(".validate-btn");
-//   I.see("Please enter a date!", ".result");
-//   I.wait(4);
-// });
-
-// Scenario("Leap year date should return success message", async ({ I }) => {
-//   I.amOnPage("/");
-//   I.waitForText("Date & Time Validator", 5);
-//   I.fillField("#date", "29/02/2024"); // Leap year
-//   I.click(".validate-btn");
-//   I.see("29/02/2024 is correct date time!", ".result");
-//   I.wait(4);
-// });
-
-// Scenario("Non-leap year date should return error message", async ({ I }) => {
-//   I.amOnPage("/");
-//   I.waitForText("Date & Time Validator", 5);
-//   I.fillField("#date", "29/02/2023"); // Non-leap year
-//   I.click(".validate-btn");
-//   I.see("29/02/2023 is NOT correct date time!", ".result");
-//   I.wait(4);
-// });
-
 Feature("Date API Validation @api");
 
 Scenario("Valid date should return success message", async ({ I }) => {
