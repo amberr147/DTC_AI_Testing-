@@ -8,8 +8,8 @@
 require("dotenv").config();
 const { setHeadlessWhen } = require("@codeceptjs/configure");
 
-// Enable headless mode when HEADLESS=true
-setHeadlessWhen(process.env.HEADLESS === "true");
+// Enable headless mode when CI=true or HEADLESS=true
+setHeadlessWhen(process.env.CI === "true" || process.env.HEADLESS === "true");
 
 exports.config = {
   // ---------------------------------------------------------------
@@ -25,11 +25,18 @@ exports.config = {
     // --- (1) PLAYWRIGHT HELPER: for E2E browser automation ---
     Playwright: {
       url: process.env.APP_URL || "http://localhost:3000", // Frontend app URL
-      show: true, // show browser window
+      show: !process.env.CI, // hide browser in CI, show locally
       browser: "chromium",
       waitForTimeout: 5000,
       chromium: {
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        headless: !!process.env.CI, // force headless in CI
+        args: process.env.CI ? [
+          "--no-sandbox", 
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-extensions",
+          "--disable-background-timer-throttling"
+        ] : ["--no-sandbox", "--disable-setuid-sandbox"],
       },
     },
 

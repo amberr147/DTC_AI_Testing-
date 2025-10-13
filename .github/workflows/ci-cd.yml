@@ -26,13 +26,15 @@ jobs:
           cache: "npm"
 
       - name: 🔧 Install Dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
 
       - name: 🚀 Start API Server
         run: |
           npm run start:api &
           echo $! > api_server.pid
-          sleep 10
+          sleep 15
 
       - name: ✅ Health Check API
         run: |
@@ -41,6 +43,9 @@ jobs:
 
       - name: 🧪 Run API Tests
         run: npm run test:api
+        env:
+          CI: true
+          HEADLESS: true
 
       - name: 🛑 Stop API Server
         if: always()
@@ -87,6 +92,8 @@ jobs:
         run: npm run test:e2e
         env:
           APP_URL: https://dtchman.netlify.app
+          CI: true
+          HEADLESS: true
 
       - name: 📊 Upload E2E Screenshots
         uses: actions/upload-artifact@v4
