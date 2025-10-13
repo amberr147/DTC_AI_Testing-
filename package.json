@@ -22,7 +22,6 @@
     "setup:e2e": "npx playwright install --with-deps",
     "test:e2e": "npx codeceptjs run tests/e2e_testing.js --config codecept.conf.cjs --steps",
     "test:api": "npx codeceptjs run tests/api_testing.js --config codecept.conf.cjs --grep \"@api\" --steps",
-    "test:ai": "node scripts/codecept-ai.js",
     "generate:tests": "node scripts/ai-test-generator.js",
     "debug:android-ui": "node scripts/debug-android-ui.cjs",
     "test:android": "node scripts/final-android-test.cjs",

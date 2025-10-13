@@ -2,6 +2,19 @@
 
 Hướng dẫn setup test ứng dụng DateTimeChecker thật trên thiết bị Android
 
+### 1. Kiểm tra device
+
+adb devices
+---> Phải thấy: emulator-5554 device
+
+### 2. Start Appium (Terminal 1)
+
+$env:ANDROID_HOME="C:\Users\DELL\AppData\Local\Android\Sdk"; $env:ANDROID_SDK_ROOT="C:\Users\DELL\AppData\Local\Android\Sdk"; npx appium --log-level info
+
+### 3. Chạy lệnh
+
+npm run test:android
+
 ## 🚀 Bước 1: Cài đặt Android SDK và ADB
 
 ### Windows Setup:

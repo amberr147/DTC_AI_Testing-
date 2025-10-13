@@ -25,6 +25,12 @@ const opts = {
 async function debugAndroidApp() {
   console.log("🔍 Debugging Android DateTimeChecker App...\n");
 
+  // Set Android environment variables
+  process.env.ANDROID_HOME = "C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk";
+  process.env.ANDROID_SDK_ROOT =
+    "C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk";
+  console.log("✅ Android SDK paths set");
+
   let driver;
 
   try {
