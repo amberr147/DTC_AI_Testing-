@@ -30,13 +30,15 @@ exports.config = {
       waitForTimeout: 5000,
       chromium: {
         headless: !!process.env.CI, // force headless in CI
-        args: process.env.CI ? [
-          "--no-sandbox", 
-          "--disable-setuid-sandbox",
-          "--disable-dev-shm-usage",
-          "--disable-extensions",
-          "--disable-background-timer-throttling"
-        ] : ["--no-sandbox", "--disable-setuid-sandbox"],
+        args: process.env.CI
+          ? [
+              "--no-sandbox",
+              "--disable-setuid-sandbox",
+              "--disable-dev-shm-usage",
+              "--disable-extensions",
+              "--disable-background-timer-throttling",
+            ]
+          : ["--no-sandbox", "--disable-setuid-sandbox"],
       },
     },
 
