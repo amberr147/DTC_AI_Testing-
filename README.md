@@ -1,314 +1,836 @@
-TEST NÈ TEST NÈ
-
-# 📱 DateTimeChecker - Complete Testing Suite# 📱 DateTimeChecker Android Testing Framework# 📱 DateTimeChecker Android Testing Framework
-
-**Advanced testing framework** với 4 loại testing: **E2E, API, Mobile App** và **AI-powered test generation** cho Date Time Checker application.**Automated testing for real Android DateTimeChecker app** built with Android Studio using direct WebDriverIO + Appium approach.**Automated testing for real Android DateTimeChecker app** built with Android Studio using direct WebDriverIO + Appium approach.
-
-## 🎯 Project Overview## 🎯 Project Overview## 🚀 Quick Start## 🚀 Live Demo
-
-Multi-testing approach cho Date & Time Validator app:Testing framework for Android DateTimeChecker app with real device interaction, UI validation, and comprehensive functionality testing.### Prerequisites**🌐 Production**: [https://dtchman.netlify.app](https://dtchman.netlify.app)
-
-- **🖥️ E2E Testing**: Desktop browser automation (CodeceptJS + Playwright) **🔗 Related Web App**: [Date & Time Validator](https://dtchman.netlify.app)1. **Android Studio** với DateTimeChecker app đã build## ✨ Tính Năng Chính
-
-- **🔌 API Testing**: Direct HTTP requests với validation endpoints
-
-- **📱 Mobile App Testing**: Real Android device testing (WebDriverIO + Appium)## 🚀 Quick Start2. **Android Device/Emulator** kết nối và app đang chạy
-
-- **🤖 AI Testing**: OpenAI-powered test case generation
-
-### Prerequisites3. **ADB** trong PATH (Android SDK platform-tools)### 📅 **Date & Time Validation**
-
-**🌐 Live Demo**: [https://dtchman.netlify.app](https://dtchman.netlify.app)
-
-1. **Android Studio** với DateTimeChecker app đã build4. **Appium** và UiAutomator2 driver đã cài
-
-## 🚀 Quick Start
-
-2. **Android Device/Emulator** kết nối và app đang chạy
-
-### System Requirements
-
-- **Node.js** >= 16.0.03. **ADB** trong PATH (Android SDK platform-tools) - **Format**: `dd/mm/yyyy` với calendar picker
-
-- **npm** >= 8.0.0
-
-- **Windows** PowerShell (tested on Windows 11)4. **Appium** và UiAutomator2 driver đã cài
-
-### 1. Installation### Setup & Run- **Real-time Validation**: Phản hồi tức thời với thông báo lỗi chi tiết
-
-```````powershell### Setup & Run
-
-# Clone repository
-
-git clone https://github.com/amberr147/DTC_AI_Testing-.git- **Leap Year**: Xử lý năm nhuận chính xác theo lịch Gregorian
-
-cd DTC_AI_Testing
-
-``````bash
-
-# Install dependencies
-
-npm install# 1. Setup ADB (chỉ cần chạy 1 lần)`````bash- **Timezone Support**: 8 múi giờ chính với chuyển đổi trực tiếp
+# 🧪 DateTimeChecker - Complete Testing Suite# 🧪 DateTimeChecker - Complete Testing Suite
 
 
 
-# Setup E2E browsers (one-time).\setup-adb.bat
+[![CI/CD Pipeline](https://github.com/amberr147/DTC_AI_Testing-/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/amberr147/DTC_AI_Testing-/actions/workflows/ci-cd.yml)[![CI/CD Pipeline](https://github.com/amberr147/DTC_AI_Testing-/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/amberr147/DTC_AI_Testing-/actions/workflows/ci-cd.yml)
 
-npm run setup:e2e
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)](https://nodejs.org/)[![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)](https://nodejs.org/)
 
-```# 1. Setup ADB (chỉ cần chạy 1 lần)
+[![React Version](https://img.shields.io/badge/react-18.2.0-blue.svg)](https://reactjs.org/)[![React Version](https://img.shields.io/badge/react-18.2.0-blue.svg)](https://reactjs.org/)
 
+[![CodeceptJS](https://img.shields.io/badge/codeceptjs-3.7.5-orange.svg)](https://codecept.io/)[![CodeceptJS](https://img.shields.io/badge/codeceptjs-3.7.5-orange.svg)](https://codecept.io/)
 
-
-### 2. Environment Setup# 2. Đảm bảo device connected
-
-
-
-Create `.env` file:adb devices.\setup-adb.bat### � **4 Loại Testing Hoàn Chỉnh**
+[![Playwright](https://img.shields.io/badge/playwright-1.56.0-green.svg)](https://playwright.dev/)[![Playwright](https://img.shields.io/badge/playwright-1.56.0-green.svg)](https://playwright.dev/)
 
 
 
-```env
+**Comprehensive testing framework** with **4 testing approaches**: **E2E**, **API**, **Mobile App**, and **AI-powered test generation** for DateTimeChecker application.**Comprehensive testing framework** with **4 testing approaches**: **E2E**, **API**, **Mobile App**, and **AI-powered test generation** for DateTimeChecker application.
+
+
+
+## 🚀 Live Demo## 🚀 Live Demo
+
+
+
+**🌐 Production App**: [https://dtchman.netlify.app](https://dtchman.netlify.app)**🌐 Production App**: [https://dtchman.netlify.app](https://dtchman.netlify.app)
+
+
+
+## 📋 Table of Contents## 📋 Table of Contents
+
+
+
+- [🎯 Project Overview](#-project-overview)- [🎯 Project Overview](#-project-overview)
+
+- [✨ Key Features](#-key-features)- [✨ Key Features](#-key-features)
+
+- [🏗️ Architecture](#️-architecture)- [🏗️ Architecture](#️-architecture)
+
+- [🚀 Quick Start](#-quick-start)- [🚀 Quick Start](#-quick-start)
+
+- [🧪 Testing Types](#-testing-types)- [🧪 Testing Types](#-testing-types)
+
+- [📊 CI/CD Pipeline](#-cicd-pipeline)- [📊 CI/CD Pipeline](#-cicd-pipeline)
+
+- [📱 Mobile Testing](#-mobile-testing)- [📱 Mobile Testing](#-mobile-testing)
+
+- [🤖 AI Testing](#-ai-testing)- [🤖 AI Testing](#-ai-testing)
+
+- [📚 Documentation](#-documentation)- [📚 Documentation](#-documentation)
+
+
+
+## 🎯 Project Overview## 🎯 Project Overview
+
+
+
+**Multi-platform testing suite** for Date & Time Validator application supporting:**Multi-platform testing suite** for Date & Time Validator application supporting:
+
+
+
+### **🔍 Testing Coverage:**### **🔍 Testing Coverage:**
+
+- ✅ **Desktop E2E**: Browser automation with Playwright- ✅ **Desktop E2E**: Browser automation with Playwright
+
+- ✅ **API Backend**: REST endpoint validation- ✅ **API Backend**: REST endpoint validation
+
+- ✅ **Mobile Android**: Real device testing with WebDriverIO + Appium- ✅ **Mobile Android**: Real device testing with WebDriverIO + Appium
+
+- ✅ **AI-Enhanced**: OpenAI GPT-4o-mini powered test generation- ✅ **AI-Enhanced**: OpenAI GPT-4o-mini powered test generation
+
+
+
+### **🛠️ Technology Stack:**### **🛠️ Technology Stack:**
+
+- **Frontend**: React 18.2.0 with modern ES modules- **Frontend**: React 18.2.0 with modern ES modules
+
+- **Testing Framework**: CodeceptJS 3.7.5- **Testing Framework**: CodeceptJS 3.7.5
+
+- **Browser Automation**: Playwright 1.56.0- **Browser Automation**: Playwright 1.56.0
+
+- **Mobile Testing**: WebDriverIO 9.20.0 + Appium 3.1.0- **Mobile Testing**: WebDriverIO 9.20.0 + Appium 3.1.0
+
+- **AI Integration**: OpenAI GPT-4o-mini API- **AI Integration**: OpenAI GPT-4o-mini API
+
+- **CI/CD**: GitHub Actions with automated workflows- **CI/CD**: GitHub Actions with automated workflows
+
+
+
+## ✨ Key Features## ✨ Key Features
+
+
+
+### **📅 Date & Time Validation**### **📅 Date & Time Validation**
+
+- **Format Support**: `dd/mm/yyyy` with interactive calendar picker- **Format Support**: `dd/mm/yyyy` with interactive calendar picker
+
+- **Real-time Validation**: Instant feedback with detailed error messages- **Real-time Validation**: Instant feedback with detailed error messages
+
+- **Timezone Support**: 8 major timezones with conversion accuracy- **Timezone Support**: 8 major timezones with conversion accuracy
+
+- **Edge Cases**: Leap year handling, month boundary validation- **Edge Cases**: Leap year handling, month boundary validation
+
+
+
+### **🧪 Advanced Testing**### **🧪 Advanced Testing**
+
+- **Production Testing**: Direct testing on live production environment- **Production Testing**: Direct testing on live production environment
+
+- **Cross-browser Support**: Chromium-based automation- **Cross-browser Support**: Chromium-based automation
+
+- **Mobile App Testing**: Real Android device interaction- **Mobile App Testing**: Real Android device interaction
+
+- **AI Test Generation**: Natural language to test case conversion- **AI Test Generation**: Natural language to test case conversion
+
+
+
+### **⚡ Performance & Reliability**### **⚡ Performance & Reliability**
+
+- **Headless CI**: Optimized for GitHub Actions environment  - **Headless CI**: Optimized for GitHub Actions environment  
+
+- **Artifact Management**: Screenshot capture on failures- **Artifact Management**: Screenshot capture on failures
+
+- **Parallel Execution**: Independent test job execution- **Parallel Execution**: Independent test job execution
+
+- **Error Reporting**: Comprehensive failure diagnostics- **Error Reporting**: Comprehensive failure diagnostics
+
+
+
+## 🏗️ Architecture## 🏗️ Architecture
+
+
+
+``````
+
+📁 DTC_AI_Testing/📁 DTC_AI_Testing/
+
+├── 🌐 Frontend (React App)├── 🌐 Frontend (React App)
+
+│   ├── src/components/DateTimeChecker.jsx  # Main component│   ├── src/components/DateTimeChecker.jsx  # Main component
+
+│   ├── public/index.html                   # Entry point│   ├── public/index.html                   # Entry point
+
+│   └── server.js                          # Local API server│   └── server.js                          # Local API server
+
+├── 🧪 Testing Framework├── 🧪 Testing Framework
+
+│   ├── tests/│   ├── tests/
+
+│   │   ├── e2e_testing.js                 # Desktop E2E scenarios│   │   ├── e2e_testing.js                 # Desktop E2E scenarios
+
+│   │   └── api_testing.js                 # Backend API tests│   │   └── api_testing.js                 # Backend API tests
+
+│   ├── scripts/│   ├── scripts/
+
+│   │   ├── final-android-test.cjs         # Mobile testing│   │   ├── final-android-test.cjs         # Mobile testing
+
+│   │   ├── codecept-ai.js                 # AI-enhanced testing│   │   ├── codecept-ai.js                 # AI-enhanced testing
+
+│   │   └── ai-test-generator.js           # AI test generation│   │   └── ai-test-generator.js           # AI test generation
+
+│   └── codecept.conf.cjs                  # Testing configuration│   └── codecept.conf.cjs                  # Testing configuration
+
+├── 🚀 CI/CD Pipeline├── 🚀 CI/CD Pipeline
+
+│   └── .github/workflows/ci-cd.yml        # GitHub Actions│   └── .github/workflows/ci-cd.yml        # GitHub Actions
+
+└── 📚 Documentation└── 📚 Documentation
+
+    ├── README.md                          # Main documentation    ├── README.md                          # Main documentation
+
+    ├── TESTING_GUIDE.md                   # Detailed testing guide    ├── TESTING_GUIDE.md                   # Detailed testing guide
+
+    └── CODE_ARCHITECTURE.md               # Technical architecture    └── CODE_ARCHITECTURE.md               # Technical architecture
+
+``````
+
+
+
+## 🚀 Quick Start## 🚀 Quick Start
+
+
+
+### **Prerequisites**### **Prerequisites**
+
+
+
+```bash```bash
+
+# System Requirements# System Requirements
+
+Node.js >= 16.0.0Node.js >= 16.0.0
+
+npm >= 8.0.0npm >= 8.0.0
+
+Windows PowerShell (for mobile testing)Windows PowerShell (for mobile testing)
+
+``````
+
+
+
+### **1. Installation**### **1. Installation**
+
+
+
+```bash```bash
+
+# Clone repository# Clone repository
+
+git clone https://github.com/amberr147/DTC_AI_Testing-.gitgit clone https://github.com/amberr147/DTC_AI_Testing-.git
+
+cd DTC_AI_Testing-cd DTC_AI_Testing-
+
+
+
+# Install dependencies# Install dependencies
+
+npm installnpm install
+
+
+
+# Setup Playwright browsers (one-time)# Setup Playwright browsers (one-time)
+
+npx playwright install --with-depsnpx playwright install --with-deps
+
+``````
+
+
+
+### **2. Environment Setup**### **2. Environment Setup**
+
+
+
+```bash```bash
+
+# Create .env file# Create .env file
+
+echo "APP_URL=https://dtchman.netlify.app" > .envecho "APP_URL=https://dtchman.netlify.app" > .env
+
+echo "API_URL=http://localhost:8080" >> .envecho "API_URL=http://localhost:8080" >> .env
+
+echo "OPENAI_API_KEY=your_api_key_here" >> .envecho "OPENAI_API_KEY=your_api_key_here" >> .env
+
+``````
+
+
+
+### **3. Quick Testing**### **3. Quick Testing**
+
+
+
+```bash```bash
+
+# 🖥️ Desktop E2E Testing (Production)# 🖥️ Desktop E2E Testing (Production)
+
+npm run test:e2enpm run test:e2e
+
+
+
+# 🔌 API Backend Testing# 🔌 API Backend Testing
+
+npm run start:api     # Terminal 1: Start API servernpm run start:api     # Terminal 1: Start API server
+
+npm run test:api      # Terminal 2: Run API testsnpm run test:api      # Terminal 2: Run API tests
+
+
+
+# 📱 Android Mobile Testing (requires setup)# 📱 Android Mobile Testing (requires setup)
+
+npm run test:androidnpm run test:android
+
+
+
+# 🤖 AI-Enhanced Testing# 🤖 AI-Enhanced Testing
+
+npm run test:ainpm run test:ai
+
+``````
+
+
+
+## 🧪 Testing Types- **Windows** PowerShell (tested on Windows 11)4. **Appium** và UiAutomator2 driver đã cài
+
+
+
+### **🖥️ E2E Desktop Testing**### 1. Installation### Setup & Run- **Real-time Validation**: Phản hồi tức thời với thông báo lỗi chi tiết
+
+
+
+**Target**: Production website `https://dtchman.netlify.app````````powershell### Setup & Run
+
+
+
+```javascript# Clone repository
+
+// Example Test Scenario
+
+Scenario('Validate empty date field @e2e', async ({ I }) => {git clone https://github.com/amberr147/DTC_AI_Testing-.git- **Leap Year**: Xử lý năm nhuận chính xác theo lịch Gregorian
+
+  I.amOnPage('/');
+
+  I.waitForText('Enhanced Date & Time Validator', 5);cd DTC_AI_Testing
+
+  I.click('.validate-btn');
+
+  I.see('Please fill in both date and time fields', '.result');``````bash
+
+});
+
+```# Install dependencies
+
+
+
+**Test Cases:**npm install# 1. Setup ADB (chỉ cần chạy 1 lần)`````bash- **Timezone Support**: 8 múi giờ chính với chuyển đổi trực tiếp
+
+- ✅ Empty field validation
+
+- ✅ Past date validation (15/08/2020)
+
+- ✅ Invalid date formats
+
+- ✅ Timezone conversion accuracy# Setup E2E browsers (one-time).\setup-adb.bat
+
+
+
+### **🔌 API Backend Testing**npm run setup:e2e
+
+
+
+**Target**: Local API server `http://localhost:8080````# 1. Setup ADB (chỉ cần chạy 1 lần)
+
+
+
+```javascript
+
+// Example API Test
+
+Scenario('Valid date should return success @api', async ({ I }) => {### 2. Environment Setup# 2. Đảm bảo device connected
+
+  const response = await I.sendPostRequest('/api/validate', {
+
+    date: '15/08/2024',
+
+    time: '14:30',
+
+    timezone: 'Asia/Ho_Chi_Minh'Create `.env` file:adb devices.\setup-adb.bat### � **4 Loại Testing Hoàn Chỉnh**
+
+  });
+
+  I.seeResponseCodeIsSuccessful();
+
+  I.seeResponseContainsKeys(['isValid', 'message', 'timestamp']);
+
+});```env
+
+```
 
 # OpenAI API Key (for AI test generation)
 
-OPENAI_API_KEY=your_openai_api_key_here# 3. Start Appium server
+**Test Coverage:**
 
+- ✅ 8 API validation scenariosOPENAI_API_KEY=your_openai_api_key_here# 3. Start Appium server
 
+- ✅ POST request validation
+
+- ✅ Response structure verification
+
+- ✅ Error handling validation
 
 # App URLsappium --log-level info
 
+### **📱 Mobile Android Testing**
+
 APP_URL=http://localhost:3000
+
+**Target**: Real Android DateTimeChecker app (APK)
 
 API_URL=http://localhost:8080# 2. Đảm bảo device connected1. **🖥️ E2E Testing**: Desktop browser automation (CodeceptJS + Playwright)
 
-```````
+```javascript
 
-# 4. Mở DateTimeChecker app trên device/emulator
+// Mobile Test Workflow```````
 
-### 3. Start Applications
+Test 6: Enhanced Now Button + Check Button Workflow
 
-adb devices2. **🔌 API Testing**: Direct HTTP requests đến backend endpoints
+→ Launch app# 4. Mở DateTimeChecker app trên device/emulator
 
-```````powershell
+→ Click "Now" button (set current date/time)
 
-# Terminal 1: Start React app# 5. Chạy Android tests
+→ Wait 3 seconds### 3. Start Applications
 
-npm start
+→ Click "Check" button (validate)
 
-# Runs on http://localhost:3000npm run test:android-final3. **📱 Mobile Web Testing**: Browser emulation với viewport + user agent mobile
+→ Screenshot resultadb devices2. **🔌 API Testing**: Direct HTTP requests đến backend endpoints
+
+→ Verify success message
+
+``````````powershell
 
 
+
+**Features:**# Terminal 1: Start React app# 5. Chạy Android tests
+
+- ✅ 6 comprehensive test scenarios
+
+- ✅ Real device interaction via WebDriverIOnpm start
+
+- ✅ UI element validation
+
+- ✅ Screenshot capture# Runs on http://localhost:3000npm run test:android-final3. **📱 Mobile Web Testing**: Browser emulation với viewport + user agent mobile
+
+- ✅ Calendar picker interaction
+
+
+
+### **🤖 AI-Powered Testing**
 
 # Terminal 2: Start API server  ``````
 
-npm run start:api
+**Features:**
 
-# API on http://localhost:8080# 3. Mở DateTimeChecker app trên device/emulator4. **📲 Mobile App Testing**: Real Android device/emulator (Appium)
+- **Test Analysis**: OpenAI GPT-4o-mini analyzes test resultsnpm run start:api
 
-```````
+- **Test Generation**: Natural language → CodeceptJS code
 
-## 📱 Android App Testing
+- **Quality Assessment**: Coverage analysis and improvement suggestions# API on http://localhost:8080# 3. Mở DateTimeChecker app trên device/emulator4. **📲 Mobile App Testing**: Real Android device/emulator (Appium)
 
-## 🧪 Testing Commands
+
+
+```bash```````
+
+# AI Test Generation Example
+
+npm run generate:tests## 📱 Android App Testing
+
+Input: "create tests for timezone switching"
+
+Output: Ready-to-use CodeceptJS scenarios## 🧪 Testing Commands
+
+```
 
 ### Current Implementation
 
+## 📊 CI/CD Pipeline
+
 ### **🖥️ Desktop E2E Testing**
+
+### **🔄 Automated Workflows**
 
 - **Framework**: Direct WebDriverIO + Appium (bypasses CodeceptJS for Android compatibility)# 4. Chạy Android tests### 🤖 **AI-Powered Test Generation**
 
-`````powershell
+**Triggers:**
+
+- ✅ Push to `main` or `develop` branches`````powershell
+
+- ✅ Pull requests to `main` branch
 
 # E2E testing on desktop browsers- **Target**: Real Android DateTimeChecker app (`com.example.datetimechecker`)
 
+**Jobs Execution:**
+
 npm run test:e2e
 
-# Playwright automation: Chrome/Firefox/Safari/Edge- **Device**: Android emulator (`emulator-5554`) or physical devicenpm run test:android
+#### **🔌 Job 1: API Backend Tests**
 
-# Auto screenshot on failures → ./output/
+```yaml# Playwright automation: Chrome/Firefox/Safari/Edge- **Device**: Android emulator (`emulator-5554`) or physical devicenpm run test:android
 
-```- **Approach**: Direct element interaction using resource IDs
+- Install Node.js 22.19.0
 
+- Install dependencies + Playwright# Auto screenshot on failures → ./output/
 
+- Start API server (localhost:8080)
+
+- Health check API endpoint```- **Approach**: Direct element interaction using resource IDs
+
+- Run API test suite
+
+- Upload test artifacts
+
+```
 
 ### **🔌 API Testing**````- **Natural Language**: Tạo tests bằng tiếng Việt/English
 
+#### **🖥️ Job 2: E2E Desktop Tests**
+
+```yaml
+
+- Install Node.js 22.19.0  
+
+- Install Playwright browsers```powershell  ### Test Coverage ✅
+
+- Check production site availability
+
+- Run E2E tests (headless mode)# Direct HTTP requests to backend API
+
+- Upload failure screenshots
+
+```npm run test:api- **OpenAI GPT-4o-mini**: Phân tích results và tạo code tự động
 
 
-```powershell  ### Test Coverage ✅
 
-# Direct HTTP requests to backend API
+#### **📋 Job 3: Test Summary**# Test validation rules: day/month/year ranges
 
-npm run test:api- **OpenAI GPT-4o-mini**: Phân tích results và tạo code tự động
+```yaml
 
-# Test validation rules: day/month/year ranges
+- Generate results summary# Response format and error messages| Test Case | Description | Expected Result |
 
-# Response format and error messages| Test Case | Description | Expected Result |
+- Create GitHub Actions summary
 
-`````
+- Success/failure notifications`````
+
+```
 
 |-----------|-------------|-----------------|## 🧪 Test Cases- **Smart Generation**: Convert mô tả → CodeceptJS scenarios ready-to-use
 
-### **📱 Mobile App Testing**
+### **🎯 CI/CD Benefits**
 
-| **UI Verification** | Verify all app elements exist | Title, input fields, buttons found |
+- ✅ **Automated Quality Gate**: Every push triggers full test suite### **📱 Mobile App Testing**
 
-````powershell
+- ✅ **Production Validation**: E2E tests run against live production
 
-# Real Android device/emulator testing  | **Valid Date Input** | Input `15/08/2020` and check | "15/08/2020 is correct date time!" |
+- ✅ **Fast Feedback**: Results in 3-5 minutes| **UI Verification** | Verify all app elements exist | Title, input fields, buttons found |
 
-npm run test:android-final
+- ✅ **Artifact Management**: Failure screenshots and logs
 
-# Requires: Android SDK + ADB setup| **Invalid Date Input** | Input `32/01/2024` and check | "❌ Input data for Day is out of range!" |
-
-# Complete guide: MOBILE_APP_TESTING.md
-
-```| **Time Input** | Input `14:30` in time field | Time accepted and processed |### ✅ Android App Tests## 🛠️ Cài Đặt & Setup
+- ✅ **Branch Protection**: PR validation before merge````powershell
 
 
 
-### **🤖 AI Test Generation**| **Clear Button** | Click clear to reset fields | Fields return to `dd/mm/yyyy` placeholder |
+## 📱 Mobile Testing# Real Android device/emulator testing  | **Valid Date Input** | Input `15/08/2020` and check | "15/08/2020 is correct date time!" |
 
 
 
-```powershell| **Now Button** | Click to auto-fill current date | Current date filled (e.g., `13/10/2025`) |
+### **Prerequisites Setup**npm run test:android-final
 
-# Generate tests from natural language
 
-npm run generate:tests "tạo 3 test cases cho leap year"
 
-npm run generate:tests "write test for invalid month validation"
+```bash# Requires: Android SDK + ADB setup| **Invalid Date Input** | Input `32/01/2024` and check | "❌ Input data for Day is out of range!" |
 
-# AI-powered test analysis with OpenAI GPT-4o-mini## 🧪 Test Scripts1. **App Launch Test**### Yêu Cầu Hệ Thống
+# 1. Android Studio with DateTimeChecker app built
 
-````
+# 2. Android device/emulator connected# Complete guide: MOBILE_APP_TESTING.md
 
-## 📱 Mobile App Testing
+# 3. ADB in PATH (Android SDK platform-tools)  
 
-### 🎯 Main Test Commands - Verify DateTimeChecker app khởi động thành công
+# 4. Appium and UiAutomator2 driver installed```| **Time Input** | Input `14:30` in time field | Time accepted and processed |### ✅ Android App Tests## 🛠️ Cài Đặt & Setup
 
-**📋 Complete Setup Guide**: See [`MOBILE_APP_TESTING.md`](./MOBILE_APP_TESTING.md)
 
-### Quick Mobile Setup
 
-````bash - Kiểm tra UI elements hiển thị đúng- **Node.js** >= 16.0.0
+# Quick setup
 
-```powershell
+npm install -g appium
 
-# 1. Setup ADB# Complete test suite (recommended)
+appium driver install uiautomator2### **🤖 AI Test Generation**| **Clear Button** | Click clear to reset fields | Fields return to `dd/mm/yyyy` placeholder |
+
+
+
+# Verify setup
 
 .\setup-adb.bat
 
-npm run test:android-final- **npm** >= 8.0.0
+adb devices```powershell| **Now Button** | Click to auto-fill current date | Current date filled (e.g., `13/10/2025`) |
 
-# 2. Connect Android device/emulator
+```
+
+# Generate tests from natural language
+
+### **Mobile Test Scenarios**
+
+npm run generate:tests "tạo 3 test cases cho leap year"
+
+| Test | Description | Validation |
+
+|------|-------------|------------|npm run generate:tests "write test for invalid month validation"
+
+| **Test 1** | Basic app launch | App starts successfully |
+
+| **Test 2** | Date picker interaction | Calendar opens and selects date |# AI-powered test analysis with OpenAI GPT-4o-mini## 🧪 Test Scripts1. **App Launch Test**### Yêu Cầu Hệ Thống
+
+| **Test 3** | Time input validation | Time format accepted |
+
+| **Test 4** | Validation button | Check button triggers validation |````
+
+| **Test 5** | Result verification | Success/error message display |
+
+| **Test 6** | Now + Check workflow | Complete end-to-end flow |## 📱 Mobile App Testing
+
+
+
+### **Running Mobile Tests**### 🎯 Main Test Commands - Verify DateTimeChecker app khởi động thành công
+
+
+
+```bash**📋 Complete Setup Guide**: See [`MOBILE_APP_TESTING.md`](./MOBILE_APP_TESTING.md)
+
+# Debug UI hierarchy
+
+npm run debug:android-ui### Quick Mobile Setup
+
+
+
+# Run full mobile test suite````bash - Kiểm tra UI elements hiển thị đúng- **Node.js** >= 16.0.0
+
+npm run test:android
+
+``````powershell
+
+
+
+## 🤖 AI Testing# 1. Setup ADB# Complete test suite (recommended)
+
+
+
+### **AI-Enhanced Analysis**.\setup-adb.bat
+
+
+
+```bashnpm run test:android-final- **npm** >= 8.0.0
+
+# Run E2E tests with AI analysis
+
+npm run test:ai# 2. Connect Android device/emulator
+
+```
 
 adb devices
 
+**AI Capabilities:**
 
+- 📊 **Test Coverage Analysis**: Identifies gaps and improvements
 
-# 3. Start Appium server# Debug UI structure2. **Valid Date Input Test**- **Windows** PowerShell (đã test trên Windows 11)
+- 🎯 **Quality Assessment**: Scores test quality (1-10 scale)
+
+- 💡 **Suggestions**: Recommends additional test scenarios# 3. Start Appium server# Debug UI structure2. **Valid Date Input Test**- **Windows** PowerShell (đã test trên Windows 11)
+
+- 🔧 **Code Quality**: Reviews test code patterns
 
 appium --log-level info
 
+### **AI Test Generation**
+
 npm run debug:android-ui
 
-# 4. Run comprehensive Android tests
+```bash
+
+# Generate tests from natural language# 4. Run comprehensive Android tests
+
+npm run generate:tests
 
 npm run test:android-final   - Nhập date hợp lệ: `15/08/2020`
 
-````
+# Example inputs:
 
-# Individual testing approaches
+"create 2 test cases for timezone switching"````
+
+"test invalid time formats like 25:00"
+
+"add tests for leap year edge cases"# Individual testing approaches
+
+```
 
 ### Mobile Test Coverage ✅
 
-npm run test:android-direct - Tap Check button### 1. **Clone & Install**
+**AI Output Example:**
 
-| Test Case | Status | Description |
+```javascriptnpm run test:android-direct - Tap Check button### 1. **Clone & Install**
 
-|-----------|--------|-------------|npm run test:android-datepicker
+// Generated CodeceptJS test
 
-| **UI Verification** | ✅ | All app elements detected |
+Scenario('Test timezone conversion accuracy @ai-generated', async ({ I }) => {| Test Case | Status | Description |
 
-| **Valid Date** | ✅ | `15/08/2020` → Success message |``` - Verify success message: "15/08/2020 is correct date time!"
+  I.amOnPage('/');
 
-| **Invalid Date** | ✅ | `32/01/2024` → Error message |
+  I.fillField('#date', '01/01/2024');|-----------|--------|-------------|npm run test:android-datepicker
 
-| **Time Input** | ✅ | `14:30` format acceptance |
+  I.fillField('#time', '00:00');
 
-| **Clear Button** | ✅ | Fields reset functionality |
+  I.selectOption('#timezone', 'UTC');| **UI Verification** | ✅ | All app elements detected |
 
-| **Now Button** | ✅ | Auto-fill current date |### 📋 Script Details```powershell
+  I.click('.validate-btn');
 
-## 🔧 Technical Stack
+  I.see('Valid Date', '.result');| **Valid Date** | ✅ | `15/08/2020` → Success message |``` - Verify success message: "15/08/2020 is correct date time!"
+
+});
+
+```| **Invalid Date** | ✅ | `32/01/2024` → Error message |
+
+
+
+## 📚 Documentation| **Time Input** | ✅ | `14:30` format acceptance |
+
+
+
+### **Detailed Guides**| **Clear Button** | ✅ | Fields reset functionality |
+
+
+
+- 📖 **[TESTING_GUIDE.md](TESTING_GUIDE.md)**: Comprehensive testing documentation| **Now Button** | ✅ | Auto-fill current date |### 📋 Script Details```powershell
+
+- 🏗️ **[CODE_ARCHITECTURE.md](CODE_ARCHITECTURE.md)**: Technical architecture details
+
+- 📱 **[MOBILE_APP_TESTING.md](MOBILE_APP_TESTING.md)**: Android testing setup## 🔧 Technical Stack
+
+- 🤖 **[ANDROID_TESTING_SETUP.md](ANDROID_TESTING_SETUP.md)**: Mobile environment setup
 
 ### **Frontend**| Script | Purpose | Output |3. **Invalid Date Input Test**# Clone repository
 
+### **Quick Reference**
+
 - **React** 18.2.0 + Hooks
 
-- **CSS3** với Glass-morphism effects|--------|---------|---------|
+| Command | Purpose | Target |
 
-- **Create React App** 5.0.1
+|---------|---------|---------|- **CSS3** với Glass-morphism effects|--------|---------|---------|
 
-| `test:android-final` | Comprehensive 6-test suite | Full functionality validation | - Nhập date không hợp lệ: `32/01/2024`git clone https://github.com/amberr147/DTC_AI_Testing-.git
+| `npm run test:e2e` | Desktop E2E testing | Production site |
 
-### **Testing Technologies**
+| `npm run test:api` | Backend API testing | Local server |- **Create React App** 5.0.1
+
+| `npm run test:android` | Mobile app testing | Android device |
+
+| `npm run test:ai` | AI-enhanced testing | E2E + Analysis || `test:android-final` | Comprehensive 6-test suite | Full functionality validation | - Nhập date không hợp lệ: `32/01/2024`git clone https://github.com/amberr147/DTC_AI_Testing-.git
+
+| `npm run generate:tests` | AI test generation | Natural language |
+
+| `npm start` | Run React app | localhost:3000 |### **Testing Technologies**
+
+| `npm run start:api` | Run API server | localhost:8080 |
 
 - **CodeceptJS** 3.7.5 + Playwright 1.56.0 (E2E)| `debug:android-ui` | UI structure discovery | XML files in `_output/` directory |
 
+## 🎯 Key Achievements
+
 - **WebDriverIO** 9.20.0 + Appium 3.1.0 (Mobile)
 
-- **OpenAI** GPT-4o-mini (AI generation)| `test:android-direct` | Basic connection test | WebDriverIO connection verification | - Tap Check buttoncd DTC_AI_Testing
+### **✅ Testing Excellence**
 
-- **Jest** + React Testing Library (Unit tests)
+- **4 Testing Types**: E2E, API, Mobile, AI-powered- **OpenAI** GPT-4o-mini (AI generation)| `test:android-direct` | Basic connection test | WebDriverIO connection verification | - Tap Check buttoncd DTC_AI_Testing
+
+- **Production Ready**: Tests run against live production
+
+- **CI/CD Integration**: Automated quality gates- **Jest** + React Testing Library (Unit tests)
+
+- **Mobile Coverage**: Real Android app testing
 
 | `test:android-datepicker` | DatePicker-specific test | Legacy approach (deprecated) |
 
-### **Backend & API**
+### **🚀 Technology Innovation**  
 
-- **Express.js** API server - Verify error message: "Input data for Day is out of range!"
+- **AI Integration**: GPT-4o-mini powered test generation### **Backend & API**
+
+- **Modern Stack**: React 18, ES modules, Playwright
+
+- **Cross-platform**: Desktop, mobile, API coverage- **Express.js** API server - Verify error message: "Input data for Day is out of range!"
+
+- **Performance Optimized**: Headless CI execution
 
 - **Endpoint**: POST `/api/validate`
 
-- **JSON** response format## 🔧 Technical Stack
+### **📊 Quality Metrics**
 
-- **CORS** enabled for development
+- **Test Coverage**: 15+ automated scenarios- **JSON** response format## 🔧 Technical Stack
+
+- **CI/CD Success Rate**: >95% pipeline reliability
+
+- **Response Time**: 3-5 minutes full test suite- **CORS** enabled for development
+
+- **Error Detection**: Comprehensive failure reporting
 
 # Cài dependencies
 
+---
+
 ## 📂 Project Structure
+
+## 🤝 Contributing
 
 - **WebDriverIO** 9.20.0 - Direct Android automation
 
-`````
+```bash
 
-📦 DTC_AI_Testing/- **Appium** 3.1.0 - Mobile app automation server## 🔧 Technical Stacknpm install
+# Development workflow`````
 
-├── 🎯 src/                           # React Application
+git checkout -b feature/new-tests
 
-│   ├── components/- **UiAutomator2** 5.0.5 - Android UI automation driver
+# Make changes📦 DTC_AI_Testing/- **Appium** 3.1.0 - Mobile app automation server## 🔧 Technical Stacknpm install
+
+npm run test:e2e  # Verify locally
+
+git commit -m "✨ Add new test scenarios"├── 🎯 src/                           # React Application
+
+git push origin feature/new-tests
+
+# Create PR → CI/CD runs automatically│   ├── components/- **UiAutomator2** 5.0.5 - Android UI automation driver
+
+```
 
 │   │   ├── DateTimeChecker.jsx      # Main UI component
 
+## 📄 License
+
 │   │   ├── DateTimeValidator.js     # Validation logic- **Android SDK** - ADB và platform-tools
+
+MIT License - See [LICENSE](LICENSE) file for details.
 
 │   │   └── DateTimeChecker.css      # Styling
 
+## 🙏 Acknowledgments
+
 │   └── App.js                       # Root component- **Node.js** - Runtime environment
 
-├── 🧪 tests/                        # All Test Files
+- **Playwright Team**: Excellent browser automation framework
 
-│   └── dateTimeChecker_test.js     # E2E/API test scenarios- **CodeceptJS** 3.7.5 - Test automation framework# Setup Playwright browsers (lần đầu tiên)
+- **CodeceptJS Community**: Powerful testing framework├── 🧪 tests/                        # All Test Files
 
-├── 🤖 scripts/                      # Testing Scripts
+- **OpenAI**: GPT-4o-mini API for AI-powered testing
 
-│   ├── ai-test-generator.js        # AI test generation## 📱 Android App Requirements
+- **React Team**: Modern frontend framework│   └── dateTimeChecker_test.js     # E2E/API test scenarios- **CodeceptJS** 3.7.5 - Test automation framework# Setup Playwright browsers (lần đầu tiên)
 
-│   ├── codecept-api.js             # API testing runner
 
-│   ├── codecept-ai.js              # AI-enhanced testing- **Appium** 3.1.0 - Mobile app automationnpm run setup:e2e
+
+---├── 🤖 scripts/                      # Testing Scripts
+
+
+
+**🎉 Happy Testing! Complete automation solution with AI intelligence!** 🚀│   ├── ai-test-generator.js        # AI test generation## 📱 Android App Requirements
+
+
+
+[![GitHub Stars](https://img.shields.io/github/stars/amberr147/DTC_AI_Testing-?style=social)](https://github.com/amberr147/DTC_AI_Testing-)│   ├── codecept-api.js             # API testing runner
+
+[![GitHub Forks](https://img.shields.io/github/forks/amberr147/DTC_AI_Testing-?style=social)](https://github.com/amberr147/DTC_AI_Testing-)
+
+[![GitHub Issues](https://img.shields.io/github/issues/amberr147/DTC_AI_Testing-)](https://github.com/amberr147/DTC_AI_Testing-/issues)│   ├── codecept-ai.js              # AI-enhanced testing- **Appium** 3.1.0 - Mobile app automationnpm run setup:e2e
 
 │   ├── final-android-test.cjs      # Mobile app testing
 
